@@ -2,12 +2,18 @@
 :PROPERTIES:
 :header-args:js: :noweb yes :results output
 :END:
+
 All place/cancel order request should have a zero RC(Error Code) property
 
-Create trader from DAX trade SDK
+To use DAX trade SDK
+#+BEGIN_SRC shell
+npm i -s @btcc_exchange/dax-trade-sdk
+#+END_SRC
+
+Create trader from SDK
 #+NAME: create-trader
 #+BEGIN_SRC js
-const Trader = require('dax-trade-sdk')
+const Trader = require('@btcc_exchange/dax-trade-sdk')
 
 const trader = new Trader({
   accessKeyId: '01234567-0123-0123-0123-0123456789ab',
@@ -78,7 +84,7 @@ market.cancel('0123456789abcdef0123456789abcdef').then((res) => {
 
 To get a signed axios
 #+BEGIN_SRC js
-const Trader = require('dax-trade-sdk')
+const Trader = require('@btcc_exchange/dax-trade-sdk')
 
 const axios = Trader.signAxios({
   accessKeyId: '01234567-0123-0123-0123-0123456789ab',
