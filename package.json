@@ -1,6 +1,6 @@
 {
   "name": "@btcc_exchange/dax-trade-sdk",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "DAX trade SDK for JavaScript",
   "main": "index.js",
   "scripts": {
