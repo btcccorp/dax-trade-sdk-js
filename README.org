@@ -1,0 +1,87 @@
+* BTCC DAX trade SDK
+:PROPERTIES:
+:header-args:js: :noweb yes :results output
+:END:
+All place/cancel order request should have a zero RC(Error Code) property
+
+Create trader from DAX trade SDK
+#+NAME: create-trader
+#+BEGIN_SRC js
+const Trader = require('dax-trade-sdk')
+
+const trader = new Trader({
+  accessKeyId: '01234567-0123-0123-0123-0123456789ab',
+  secretAccessKey: '0123456789abcdef0123456789abcdef0123456789abcdef'
+})
+#+END_SRC
+
+Get balance
+#+BEGIN_SRC js
+<<create-trader>>
+
+trader.getAccountInfo().then((res) => {
+  // Do something with axios response
+  console.log(res.data)
+})
+#+END_SRC
+
+Create simplified ETC_BTC market from trader (ETH_BTC the same)
+#+NAME: create-etc-market
+#+BEGIN_SRC js
+<<create-trader>>
+
+const market = trader.getMarket('ETC_BTC')
+#+END_SRC
+
+Get my open orders
+#+BEGIN_SRC js
+<<create-etc-market>>
+
+market.list().then((res) => {
+  // Do something with axios response
+  console.log(res.data)
+})
+#+END_SRC
+
+Buy 
+#+BEGIN_SRC js
+<<create-etc-market>>
+
+// amount, price
+market.buy('0.01', '0.1').then((res) => {
+  // Do something with axios response
+  console.log(res.data)
+})
+#+END_SRC
+
+Sell
+#+BEGIN_SRC js
+<<create-etc-market>>
+
+// amount, price
+market.sell('0.02', '0.1').then((res) => {
+  // Do something with axios response
+  console.log(res.data)
+})
+#+END_SRC
+
+Cancel order
+#+BEGIN_SRC js
+<<create-etc-market>>
+
+// order id
+market.cancel('0123456789abcdef0123456789abcdef').then((res) => {
+  // Do something with axios response
+  console.log(res.data)
+})
+#+END_SRC
+
+To get a signed axios
+#+BEGIN_SRC js
+const Trader = require('dax-trade-sdk')
+
+const axios = Trader.signAxios({
+  accessKeyId: '01234567-0123-0123-0123-0123456789ab',
+  secretAccessKey: '0123456789abcdef0123456789abcdef0123456789abcdef'
+})
+#+END_SRC
