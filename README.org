@@ -36,14 +36,14 @@ Create simplified ETC_BTC market from trader (ETH_BTC the same)
 #+BEGIN_SRC js
 <<create-trader>>
 
-const market = trader.getMarket('ETC_BTC')
+const etcMarket = trader.getMarket('ETC_BTC')
 #+END_SRC
 
 Get my open orders
 #+BEGIN_SRC js
 <<create-etc-market>>
 
-market.list().then((res) => {
+etcMarket.list().then((res) => {
   // Do something with axios response
   console.log(res.data)
 })
@@ -54,7 +54,7 @@ Buy
 <<create-etc-market>>
 
 // amount, price
-market.buy('0.01', '0.1').then((res) => {
+etcMarket.buy('0.01', '0.1').then((res) => {
   // Do something with axios response
   console.log(res.data)
 })
@@ -65,7 +65,7 @@ Sell
 <<create-etc-market>>
 
 // amount, price
-market.sell('0.02', '0.1').then((res) => {
+etcMarket.sell('0.02', '0.1').then((res) => {
   // Do something with axios response
   console.log(res.data)
 })
@@ -76,7 +76,7 @@ Cancel order
 <<create-etc-market>>
 
 // order id
-market.cancel('0123456789abcdef0123456789abcdef').then((res) => {
+etcMarket.cancel('0123456789abcdef0123456789abcdef').then((res) => {
   // Do something with axios response
   console.log(res.data)
 })
