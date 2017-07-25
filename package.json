@@ -1,15 +1,23 @@
 {
   "name": "@btcc_exchange/dax-trade-sdk",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "DAX trade SDK for JavaScript",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BTCChina/dax-trade-sdk-js.git"
+  },
   "author": "BTCC DAX",
-  "license": "BSD",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/BTCChina/dax-trade-sdk-js/issues"
+  },
+  "homepage": "https://github.com/BTCChina/dax-trade-sdk-js#readme",
   "dependencies": {
-    "aws-sdk": "^2.88.0",
+    "aws-sdk": "^2.89.0",
     "axios": "^0.16.2",
     "blueimp-md5": "^2.7.0",
     "urijs": "^1.18.10"
