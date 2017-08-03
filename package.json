@@ -1,6 +1,6 @@
 {
   "name": "@btcc_exchange/dax-trade-sdk",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "DAX trade SDK for JavaScript",
   "main": "index.js",
   "scripts": {
@@ -17,9 +17,9 @@
   },
   "homepage": "https://github.com/BTCChina/dax-trade-sdk-js#readme",
   "dependencies": {
-    "aws-sdk": "^2.89.0",
+    "aws-sdk": "^2.94.0",
     "axios": "^0.16.2",
-    "blueimp-md5": "^2.7.0",
+    "blueimp-md5": "^2.8.0",
     "urijs": "^1.18.10"
   }
 }
