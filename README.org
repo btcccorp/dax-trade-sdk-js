@@ -6,7 +6,7 @@
 All place/cancel order request should have a zero RC(Error Code) property
 
 To use DAX trade SDK
-#+BEGIN_SRC shell
+#+BEGIN_SRC shell :dir /tmp
 npm i -s @btcc_exchange/dax-trade-sdk
 #+END_SRC
 
@@ -89,5 +89,36 @@ const Trader = require('@btcc_exchange/dax-trade-sdk')
 const axios = Trader.signAxios({
   accessKeyId: '01234567-0123-0123-0123-0123456789ab',
   secretAccessKey: '0123456789abcdef0123456789abcdef0123456789abcdef'
+})
+#+END_SRC
+
+* BTCC DAX Public Websocket API
+:PROPERTIES:
+:header-args:js: :results output
+:END:
+
+#+BEGIN_SRC shell :dir /tmp
+npm i -s ws uuid
+#+END_SRC
+
+#+BEGIN_SRC js
+const WebSocket = require('ws')
+const uuidv4 = require('uuid/v4')
+
+const ws = new WebSocket('wss://api-dax.btcc.com/ws/pub')
+
+ws.on('open', () => {
+  ws.send(JSON.stringify({
+    MsgType: "QuoteRequest",
+    CRID: uuidv4(),
+    Symbol: "ETC_BTC",
+    QuoteType: 2,
+  }))
+})
+
+ws.on('message', (data) => {
+  // Do something with GlobalTicker, OrderBook and ExecTradeBase
+  console.log(data)
+  ws.close() // Or remove this line to listen increment trade
 })
 #+END_SRC
