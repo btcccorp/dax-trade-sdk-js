@@ -105,7 +105,7 @@ npm i -s ws uuid
 const WebSocket = require('ws')
 const uuidv4 = require('uuid/v4')
 
-const ws = new WebSocket('wss://api-dax.btcc.com/ws/pub')
+const ws = new WebSocket('wss://ws-dax.btcc.com/ws/pub')
 
 ws.on('open', () => {
   ws.send(JSON.stringify({
